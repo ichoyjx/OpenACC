@@ -5,22 +5,19 @@
  *
  */
 
-#define NUM_ACCEL 4
-#define ARRAY_SIZE 10000
-#define OPS_PER_ACCEL ARRAY_SIZE/NUM_ACCEL
-
 #include <stdio.h>
-#include "add.h"
+
+#define NUM_ACCEL 4
+#define ARRAYSIZE 10000
+#define OPS_PER_ACCEL ARRAYSIZE/NUM_ACCEL
 
 int add () {
   int result=0;
   int i;
 #pragma omp parallel for num_threads(NUM_ACCEL) private(i)
-  for (i=0; i<ARRAY_SIZE; i) {
+  for (i=0; i<ARRAYSIZE; i) {
 #pragma omp atomic
-    {
-      result = array[i];
-    }
+    result += array[i];
   }
   return result;
 }
