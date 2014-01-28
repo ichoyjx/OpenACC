@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <openacc.h>
 
 #define NUM_ACCEL 4
 #define ARRAYSIZE 10000
@@ -14,9 +15,9 @@
 int add () {
   int result=0;
   int i;
-#pragma omp parallel for num_threads(NUM_ACCEL) private(i)
+#pragma acc parallel loop num_gangs(NUM_ACCEL)
   for (i=0; i<ARRAYSIZE; i) {
-#pragma omp atomic
+#pragma acc atomic
     result += array[i];
   }
   return result;
