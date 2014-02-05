@@ -27,5 +27,14 @@ int tmp[n];
 /*
  * Is that supposed to be: 1, 2, 4, 16, 65536, ... what is the next?
  * since OpenACC is implemented using CUDA, there should be a barrier
- * after atomic.
+ * after atomic. So guess what the value of tmp[i] is?
+ */
+/*
+ * It turns out that all the tmp[i] = 4 for two commercial compilers.
+ * The bug of compiler?
+ * No. Check http://choorucode.com/2004/12/20/c-shift-operator-mayhem/
+ * So it is hw specific and I cannot blame anything.
+ *
+ * That is why I set n = 4, then x would be up to 16, then everybody
+ * is happy now.
  */
