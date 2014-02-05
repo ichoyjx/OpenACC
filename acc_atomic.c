@@ -16,7 +16,7 @@ int add () {
   int result=0;
   int i;
 #pragma acc parallel loop num_gangs(NUM_ACCEL)
-  for (i=0; i<ARRAYSIZE; i) {
+  for (i=0; i<ARRAYSIZE; i++) {
 #pragma acc atomic
     result += array[i];
   }
