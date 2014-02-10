@@ -1,4 +1,4 @@
-/* */
+/* will these two for loops be optimized away? */
 
 for (int idx=0; idx<2; idx++) {
 
