@@ -11,3 +11,6 @@
          enddo
       enddo
 !$acc end parallel
+
+! I've tested the code above, it turns out that only
+! CAPS compiler support partial tiling
