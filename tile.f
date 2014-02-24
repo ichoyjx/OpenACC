@@ -14,3 +14,11 @@
 
 ! I've tested the code above, it turns out that only
 ! CAPS compiler support partial tiling
+
+!$acc loop tile(*,*)
+
+! or
+
+!$acc loop tile(10,10)
+
+! or we could do that in 1D
